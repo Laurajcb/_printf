@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include "holberton.h"
+
 /**
  * _printf - function
  * @format: pointer to array
@@ -10,14 +11,14 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0;
-	int j = 0;
-	char join[1024] = "";
+    int i = 0;
+    int j = 0;
+    char join[1024] = "";
 
     va_list parameters;
-    va_start (parameters, format);
+    va_start(parameters, format);
 
-    for(i = 0; format[i] != '\0'; i++, j++)
+    for (i = 0; format[i] != '\0'; i++, j++)
     {
         if (format[i] == '%')
         {
@@ -38,7 +39,7 @@ int _printf(const char *format, ...)
             }
             else
             {
-                join[j]= format[i];
+                join[j] = format[i];
             }
         }
         else
@@ -46,5 +47,7 @@ int _printf(const char *format, ...)
             join[j] = format[i];
         }
     }
+    va_end(parameters);
     write(1, join, j);
+    return(j);
 }
