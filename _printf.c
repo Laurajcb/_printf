@@ -10,10 +10,8 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0;
-	int j = 0;
+	int i, j = 0;
 	char join[1024] = "";
-
 	va_list parameters;
 
 	va_start(parameters, format);
@@ -22,6 +20,8 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			while (format[i + 1] == ' ')
+				i++;
 			if (format[i + 1] == 'c')
 			{
 				join[j] = va_arg(parameters, int);
