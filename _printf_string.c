@@ -16,8 +16,8 @@ int f_strings(char *str, char *join, int j)
 
 	for (x = 0; str[x] != '\0'; x++)
 	{
-	join[j] = str[x];
-	j++;
+		join[j] = str[x];
+		j++;
 	}
 	return (j);
 }
