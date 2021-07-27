@@ -16,7 +16,7 @@ int f_strings(char *str, char *join, int j)
 
 	if (str == NULL)
 	{
-		return (j);
+		return ("(null)");
 	}
 
 	for (x = 0; str[x] != '\0'; x++)
