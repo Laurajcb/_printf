@@ -10,37 +10,35 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0;
-	int j = 0;
+	int i, j = 0, flag = 0;
 	char join[1024] = "";
-
 	va_list parameters;
+
+	if (format == NULL)
+		return (0);
 
 	va_start(parameters, format);
 
-	for (i = 0; format[i] != '\0'; i++, j++)
+	for (i = 0; format[i] != '\0'; i++, j++, flag = 0)
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] == 'c')
 		{
-			if (format[i + 1] == 'c')
-			{
-				join[j] = va_arg(parameters, int);
-				i++;
-			}
-			else if (format[i + 1] == '%')
-			{
-				join[j] = '%';
-				i++;
-			}
-			else if (format[i + 1] == 's')
-			{
-				j = f_strings(va_arg(parameters, char *), join, j);
-				i++;
-			}
-			else
-			{
-				join[j] = format[i];
-			}
+			join[j] = va_arg(parameters, int);
+			flag = 1;
+		}
+		if (format[i] == '%' && format[i + 1] == 's')
+		{
+			j = f_strings(va_arg(parameters, char *), join, j);
+			flag = 1;
+		}
+		if (format[i] == '%' && format[i + 1] == '%')
+		{
+			join[j] = '%';
+			flag = 1;
+		}
+		if (flag == 1)
+		{
+			i++;
 		}
 		else
 		{
