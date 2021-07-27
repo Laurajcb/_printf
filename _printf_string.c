@@ -14,6 +14,11 @@ int f_strings(char *str, char *join, int j)
 {
 	int x = 0;
 
+	if (str == NULL)
+	{
+		return (j);
+	}
+
 	for (x = 0; str[x] != '\0'; x++)
 	{
 		join[j] = str[x];
