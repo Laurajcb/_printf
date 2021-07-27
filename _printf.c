@@ -11,7 +11,7 @@
 int _printf(const char *format, ...)
 {
 	int i, j = 0;
-	char join[1024] = "";
+	char join[2048] = "";
 	va_list parameters;
 
 	va_start(parameters, format);
