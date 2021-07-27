@@ -10,37 +10,35 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, j = 0;
+	int i, j, k = 0;
 	char join[1024] = "";
+	int (*pointer_f)(va_list, int, char *);
+
+	place_holders place[] = {
+		{"c", print_c},
+		{"s", print_s},
+		{"%", print_p},
+		{"d", print_d},
+		{"i", print_i},
+		{NULL, NULL}};
+
 	va_list parameters;
 
 	va_start(parameters, format);
 
 	for (i = 0; format[i] != '\0'; i++, j++)
 	{
+		k = 0;
 		if (format[i] == '%')
 		{
-			while (format[i + 1] == ' ')
-				i++;
-			if (format[i + 1] == 'c')
-			{
-				join[j] = va_arg(parameters, int);
-				i++;
-			}
-			else if (format[i + 1] == '%')
-			{
-				join[j] = '%';
-				i++;
-			}
-			else if (format[i + 1] == 's')
-			{
-				j = f_strings(va_arg(parameters, char *), join, j);
-				i++;
-			}
-			else
-			{
-				join[j] = format[i];
-			}
+			while (k < 5)
+				if (place[k].type[0] == format[i + 1])
+				{
+					i++;
+					pointer_f = place[k].f;
+					j = pointer_f(parameters, j, join);
+				}
+				k++;
 		}
 		else
 		{
@@ -51,4 +49,3 @@ int _printf(const char *format, ...)
 	write(1, join, j);
 	return (j);
 }
-
