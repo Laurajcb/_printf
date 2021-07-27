@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 			join[j] = format[i];
 		}
 	}
+	va_end(parametros);
 	write(1, join, j);
 	return (0);
 }
-
