@@ -46,12 +46,7 @@ int _printf(const char *format, ...)
             join[j] = format[i];
         }
     }
+	va_end(parameters);
     write(1, join, j);
-}
-int main(void)
-{
-    _printf("Char[%%][%c][%c][%c]\n", 'H', 'L', 'H', 'L');
-    _printf("Let's try to printf a %%simple sentence.\n");
-    _printf("Unknown:[%r]\n");
-    _printf("String:[%s]\n", "I am a string !");
+	return (0);
 }
