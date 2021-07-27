@@ -3,13 +3,16 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include "holberton.h"
-
+/**
+ * _printf - function
+ * @format: pointer to array
+ * Return: 1.
+ */
 int _printf(const char *format, ...)
 {
-    int i = 0;
-    int p = 0; 
-    int j = 0;
-    char join[1024] = "";
+	int i = 0;
+	int j = 0;
+	char join[1024] = "";
 
     va_list parameters;
     va_start (parameters, format);
