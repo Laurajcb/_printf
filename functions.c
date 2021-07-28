@@ -24,8 +24,9 @@ int print_c(va_list parameters, int j, char *join)
  */
 int print_p(va_list parameters, int j, char *join)
 {
+	char *p = "%";
 	parameters = parameters;
-	join[j] = '%';
+	join[j] = *p;
 
 	return (j);
 }
