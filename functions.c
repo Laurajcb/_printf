@@ -5,9 +5,9 @@
 #include "holberton.h"
 /**
  * print_c- function that fills place holders with string
- * @parameters: takes the parameter of va_arg
- * @join: is the buffer (takes temporal value)
- * @j: is the position where will be replace the va_arg
+ * @ parameters:takes the parameter of va_arg
+ * @ join: is the buffer (takes temporal value)
+ * @ j: is the position where will be replace the va_arg
  * Return:j the actual position .
  */
 int print_c(va_list parameters, int j, char *join)
@@ -17,10 +17,10 @@ int print_c(va_list parameters, int j, char *join)
 }
 /**
  * print_p- function that fills place holders with string
- * @parameters: takes the parameter of va_arg
- * @join: is the buffer (takes temporal value)
- * @j: is the position where will be replace the va_arg
- * Return:j the actual position .
+ * @ p arameters: takes the parameter of va_arg
+ * @j oin: is the buffer (takes temporal value)
+ * @j : is the position where will be replace the va_arg
+ * Return:j the actual position
  */
 int print_p(va_list parameters, int j, char *join)
 {
@@ -30,10 +30,10 @@ int print_p(va_list parameters, int j, char *join)
 	return (j);
 }
 /**
- * print_s- function that fills place holders with string
- * @parameters: takes the parameter of va_arg
- * @join: is the buffer (takes temporal value)
- * @j: is the position where will be replace the va_arg
+ * print_s-function that fills place holders with string
+ * @ parameters: takes the parameter of va_arg
+ * @ join: is the buffer (takes temporal value)
+ * @ j: is the position where will be replace the va_arg
  * Return:j the actual position .
  */
 int print_s(va_list parameters, int j, char *join)
@@ -59,6 +59,5 @@ int print_s(va_list parameters, int j, char *join)
 			join[j] = str[x];
 			j++;
 		}
-	return (j);
+	return (j - 1);
 }
-
