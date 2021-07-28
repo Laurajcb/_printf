@@ -107,5 +107,5 @@ int print_n(va_list parameters, int j, char *join)
 			j++;
 		}
 	}
-	return (j);
+	return (j - 1);
 }
