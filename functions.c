@@ -46,7 +46,7 @@ int print_s(va_list parameters, int j, char *join)
 
 	str = va_arg(parameters, char *);
 
-	if (str == NULL)
+	if (str == (char *)0)
 	{
 		for (c = 0; null_var[c] != '\0'; c++)
 		{
