@@ -10,32 +10,29 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, j, k = 0;
+	int i, j = 0, k = 0;
 	char join[2048] = "";
 	int (*pointer_f)(va_list, int, char *);
-
-	place_holders place[] = {
-		{"c", print_c},
-		{"s", print_s},
-		{"%", print_p},
-		{NULL, NULL}};
-
 	va_list parameters;
+	place_holders place[] = {
+	    {"c", print_c}, {"s", print_s}, {"%", print_p}};
 
 	va_start(parameters, format);
 
-	for (i = 0; format[i] != '\0'; i++, j++)
+	for (i = 0; format[i] != '\0'; i++, j++, k = 0)
 	{
-		k = 0;
 		if (format[i] == '%')
 		{
-			while (k < 3)
+			while (k <= 3)
 			{
-				if (place[k].type[0] == format[i + 1])
+				if (k == 3)
+					join[j] = '%';
+				if (k < 3 && place[k].type[0] == format[i + 1])
 				{
 					i++;
 					pointer_f = place[k].f;
 					j = pointer_f(parameters, j, join);
+					break;
 				}
 				k++;
 			}
