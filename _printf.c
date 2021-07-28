@@ -11,7 +11,7 @@
 int _printf(const char *format, ...)
 {
 	int i, j, k = 0;
-	char join[1870] = "";
+	char join[2048] = "";
 	int (*pointer_f)(va_list, int, char *);
 
 	place_holders place[] = {
