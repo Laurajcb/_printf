@@ -63,3 +63,49 @@ int print_s(va_list parameters, int j, char *join)
 		}
 	return (j - 1);
 }
+/**
+ * print_n - function that fills place holders with string
+ * @parameters: takes the parameter of va_arg
+ * @join: is the buffer (takes temporal value)
+ * @j: is the position where will be replace the va_arg
+ * Return:j the actual position .
+ */
+int print_n(va_list parameters, int j, char *join)
+{
+	long int number;
+	int aux_variable, base;
+
+	number = va_arg(parameters, int);
+
+	if (number < 0)
+	{
+		number *= -1;
+		join[j] = 45;
+		j++;
+	}
+	else
+		number = number;
+	if (number >= 0 && number <= 9)
+	{
+		join[j] = (number + 48);
+		j++;
+	}
+	if (number > 9)
+	{
+		base = 10;
+
+		while (number / base > 9)
+		{
+			base *= 10;
+		}
+		while (base > 0)
+		{
+			aux_variable = number / base;
+			number = number % base;
+			join[j] = (aux_variable + 48);
+			base = base / 10;
+			j++;
+		}
+	}
+	return (j);
+}

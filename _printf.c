@@ -16,7 +16,8 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	place_holders place[] = {
-	    {"c", print_c}, {"s", print_s}, {"%", print_p}};
+		{"c", print_c}, {"s", print_s}, {"%", print_p},
+		{"d", print_n}, {"i", print_n}};
 
 	va_start(args, format);
 
@@ -26,11 +27,11 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			while (k <= 3)
+			while (k <= 5)
 			{
 				if (k == 3)
 					join[j] = '%';
-				if (k < 3 && place[k].type[0] == format[i + 1])
+				if (k < 5 && place[k].type[0] == format[i + 1])
 				{
 					i++;
 					pointer_f = place[k].f;
