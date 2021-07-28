@@ -7,7 +7,11 @@ int print_s(va_list parameters, int j, char *join);
 int print_p(va_list parameters, int j, char *join);
 int print_d(va_list parameters, int j, char *join);
 int print_i(va_list parameters, int j, char *join);
-
+/**
+ *  struct placeHolders- typedef struct
+ * @type:type of place holders
+ * @f:pointer to funtion
+ **/
 typedef struct placeHolders
 {
 	char *type;
