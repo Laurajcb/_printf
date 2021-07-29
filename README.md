@@ -138,3 +138,8 @@ Mapu@ubuntu:~/c/printf$
 -String: printf("%s", 'This is a string.'); Output: This is a string.
 
  -Integer: printf("%i", 5); Output: 5
+
+
+### Authors
+
+Written by Laura Callejas and Maria Paula Medina, Cohort 15.
